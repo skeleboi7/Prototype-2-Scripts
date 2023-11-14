@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOOB : MonoBehaviour
+public class DestroyOutOfBound : MonoBehaviour
 {
+    private float topBound = 30;
+    private float lowerBound = -10;
+    private float xBound = 30;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-    private float topBound = 30;
-    private float lowerBound = -10;
-    // Update is called once per frame
-    void Update(){
-        if (transform.position.z > topBound) {
 
-        Destroy(gameObject); }
-         else if (transform.position.z < lowerBound){
-            Debug.Log("Game Over!");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(transform.position.z > topBound || transform.position.z < lowerBound || transform.position.x < - xBound || transform.position.x > xBound)
+        {
             Destroy(gameObject);
         }
-        }
+    }
 }
